@@ -1,2 +1,9 @@
-<h1>Cats#index</h1>
-<p>Find me in app/views/cats/index.html.erb</p>
+<h1>Cats</h1>
+
+<% @cats.each do |cat| %>
+	<%= cat.name %> <hr>
+<% end %>
+
+<button>
+	<%= link_to 'Make a New Cat!!!', cats_new_path %>
+</button>

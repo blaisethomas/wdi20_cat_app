@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'cats#index'
 
+  get 'cats' => 'cats#index'
+
   get 'cats/new' => 'cats#new'
 
   post 'cats/' => 'cats#create'

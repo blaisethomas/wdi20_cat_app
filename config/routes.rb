@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
-  root 'todos#index'
+  root 'cats#index'
+
+  get 'cats/new' => 'cats#new'
+
+  post 'cats/' => 'cats#create'
+
+  get 'cats/:id' => 'cats#show'
+
+  get 'cats/:id/edit' => 'cats#edit'
+
+  put 'cats/:id' => 'cats#update'
+
+  delete 'cats/:id' => 'cats#destroy'
   
   resources :todos
   # The priority is based upon order of creation: first created -> highest priority.

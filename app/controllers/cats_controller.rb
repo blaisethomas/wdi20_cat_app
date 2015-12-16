@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+
 	def index
 		@cats = Cat.all.order('id ASC')
 	end
@@ -8,7 +9,7 @@ class CatsController < ApplicationController
 	end
 
 	def create
-		@cat = Cat.new(params.require(:cat).permit(:name, :hair_color, :breed, :age, :gender))
+		@cat = Cat.new(cat_params)
 
 		if @cat.save
 			redirect_to cats_path
@@ -28,7 +29,7 @@ class CatsController < ApplicationController
 	def update
 		@cat = Cat.find(params[:id])
 
-		if @cat.update_attributes(params.require(:cat).permit(:name, :hair_color, :breed, :age, :gender))
+		if @cat.update_attributes(cat_params)
 			redirect_to cat_path(@cat)
 		else
 			render :edit
@@ -36,5 +37,18 @@ class CatsController < ApplicationController
 	end
 
 	def destroy
+		@cat = Cat.find(params[:id])
+		@cat.destroy
+		redirect_to root_path
+	end
+
+private
+	def cat_params
+		params.require(:cat).permit(:name, :hair_color, :breed, :age, :gender)
 	end
 end
+
+
+
+
+

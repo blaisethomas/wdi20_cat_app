@@ -10,9 +10,24 @@ is <%= @cat.age %> years old.
 
 <hr>
 
+<% if @cat.todos.count > 0 %>
+	<h3><%= @cat.name %>'s Todo List</h3>
+
+	<ul>
+		<% @cat.todos.each do |todo| %>
+			<li><%= todo.title %>: <%= todo.content %> <%= todo.is_completed %></li>
+		<% end %>
+	</ul>
+
+	<hr>
+<% end %>
+
 <%= link_to 'Edit', edit_cat_path(@cat) %>
 
 <br>
 
-<%= link_to 'Back', root_path %> <br>
+<%= link_to 'Back', root_path %>
+
+<br>
+
 <%= link_to 'Destroy', cat_path(@cat), method: :delete, data: { confirm: 'Are you sure you want to murder this sweet innocent kitten? :('} %>

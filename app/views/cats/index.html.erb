@@ -1,0 +1,9 @@
+<h1>Cats</h1>
+
+<% @cats.each do |cat| %>
+	<%= link_to cat.name, cat_path(cat) %> <hr>
+<% end %>
+
+<button>
+	<%= link_to 'Make a New Cat!!!', cats_new_path %>
+</button>

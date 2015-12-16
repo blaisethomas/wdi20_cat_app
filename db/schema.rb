@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215222851) do
+ActiveRecord::Schema.define(version: 20151216015956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20151215222851) do
     t.boolean  "is_completed"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "cat_id"
   end
 
+  add_index "todos", ["cat_id"], name: "index_todos_on_cat_id", using: :btree
+
+  add_foreign_key "todos", "cats"
 end

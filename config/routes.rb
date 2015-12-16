@@ -2,6 +2,20 @@ Rails.application.routes.draw do
 
   root 'cats#index'
 
+  get 'cats/:cat_id/todos' => 'todos#index'
+
+  post 'cats/:cat_id/todos' => 'todos#create'
+
+  get 'cats/:cat_id/todos/new' => 'todos#new', as: :new_todo
+
+  get 'cats/:cat_id/todos/:id/edit' => 'todos#edit', as: :edit_todo
+
+  get 'cats/:cat_id/todos/:id' => 'todos#show', as: :todo
+
+  patch 'cats/:cat_id/todos/:id' => 'todos#update'
+
+  delete 'cats/:cat_id/todos/:id' => 'todos#destroy'
+
   get 'cats' => 'cats#index'
 
   get 'cats/new' => 'cats#new'
@@ -16,7 +30,6 @@ Rails.application.routes.draw do
 
   delete 'cats/:id' => 'cats#destroy'
   
-  resources :todos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

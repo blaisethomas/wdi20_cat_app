@@ -8,11 +8,11 @@ Rails.application.routes.draw do
 
   post 'cats/' => 'cats#create'
 
-  get 'cats/:id' => 'cats#show'
+  get 'cats/:id' => 'cats#show', as: :cat
 
-  get 'cats/:id/edit' => 'cats#edit'
+  get 'cats/:id/edit' => 'cats#edit', as: :edit_cat
 
-  put 'cats/:id' => 'cats#update'
+  patch 'cats/:id' => 'cats#update'
 
   delete 'cats/:id' => 'cats#destroy'
   

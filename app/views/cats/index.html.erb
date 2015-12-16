@@ -1,7 +1,7 @@
 <h1>Cats</h1>
 
 <% @cats.each do |cat| %>
-	<%= cat.name %> <hr>
+	<%= link_to cat.name, cat_path(cat) %> <hr>
 <% end %>
 
 <button>

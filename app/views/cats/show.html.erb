@@ -1,2 +1,17 @@
-<h1>Cats#show</h1>
-<p>Find me in app/views/cats/show.html.erb</p>
+<h1><%= @cat.name %></h1>
+
+<%= @cat.name %> is a(n) <%= @cat.hair_color %>, <%= @cat.breed %> cat.
+<% if @cat.gender == 'boy' %>
+	He
+<% else %>
+	She
+<% end %>
+is <%= @cat.age %> years old.
+
+<hr>
+
+<%= link_to 'Edit', edit_cat_path(@cat) %>
+
+<br>
+
+<%= link_to 'Back', root_path %>

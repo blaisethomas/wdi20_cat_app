@@ -1,0 +1,32 @@
+<%= form_for @cat do |f| %>
+
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+
+	<div>
+		<%= f.label :hair_color %>
+		<%= f.text_field :hair_color %>
+	</div>
+
+	<div>
+		<%= f.label :breed %>
+		<%= f.text_field :breed %>
+	</div>
+
+	<div>
+		<%= f.label :age %>
+		<%= f.number_field :age, in: 0..100, step: 0.5 %>
+	</div>
+
+	<div>
+		<%= f.label :gender %>
+		<%= f.select :gender, options_for_select([["Select One", ""], "boy", "girl"]) %>
+	</div>
+
+	<div>
+		<%= f.submit %>
+	</div>
+
+<% end %>

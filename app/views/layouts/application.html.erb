@@ -10,8 +10,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= params %>
-<%= yield %>
+
+<%= render 'layouts/nav' %>
+
+<div class="container">
+	<%#= params %>
+	<%= yield %>
+</div>
 
 </body>
 </html>

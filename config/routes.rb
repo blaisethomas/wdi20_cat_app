@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'login' => 'sessions#new'
+
+  post 'login' => 'sessions#create'
+
   root 'cats#index'
 
   get 'cats/:cat_id/todos' => 'todos#index'
